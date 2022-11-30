@@ -1,0 +1,40 @@
+<form [formGroup]="form" #frmVehiculo="ngForm" (ngSubmit)="guardar()" >
+
+        <mat-form-field >
+                <input matInput placeholder="abc-123"  formControlName="placa" maxlength="7" >
+                <mat-error *ngIf="placa.invalid && placa.errors.required">Placa es requerido</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+            <input type="number" matInput placeholder="2020"  formControlName="modelo" >
+            <mat-error *ngIf="modelo.invalid && modelo.errors.required">Modelo es requerido</mat-error>
+            <mat-error *ngIf="modelo.invalid && modelo.errors.min">Modelo mínimo 2005</mat-error>
+            <mat-error *ngIf="modelo.invalid && modelo.errors.max">Modelo máximo 2022</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+            <input matInput placeholder="mazda"  formControlName="marca" maxlength="15">
+            <mat-error *ngIf="marca.invalid && marca.errors.required">Marca es requerido</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+            <input matInput placeholder="20Kg"  formControlName="capacidad" maxlength="6" >
+            <mat-error *ngIf="capacidad.invalid && capacidad.errors.required">Capacidad es requerido</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+            <input matInput placeholder="Carga"  formControlName="tipoVehiculo" maxlength="10">
+            <mat-error *ngIf="tipoVehiculo.invalid && tipoVehiculo.errors.required">Tipo Vehículo es requerido</mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit" [disabled]="frmVehiculo.invalid">
+            <mat-icon>done</mat-icon>
+            <span>Guardar</span>
+        </button>
+        <button mat-raised-button color="warn"  type="button"  routerLink="/vehiculo">
+            <mat-icon>close</mat-icon>
+            <span>Cancelar</span>
+        </button>
+
+
+</form>

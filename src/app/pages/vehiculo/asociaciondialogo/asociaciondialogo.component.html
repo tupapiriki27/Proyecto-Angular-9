@@ -1,0 +1,38 @@
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.apellido}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-button color="primary" (click)="eliminar(element.idUsuario)">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>
+
+<mat-form-field>
+    <mat-label>Conductor</mat-label>
+    <mat-select (selectionChange)="idSeleccionado($event.value)">
+        <mat-option *ngFor="let conductor of displayedConductor" [value]="conductor.idUsuario">
+            {{conductor.nombre}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<br>
+<button mat-button color="warm" type="button" (click)="asociar()">
+    <span>Asociar</span>
+</button>
+<button mat-button (click)="cerrarDialogo()">Cerrar</button>

@@ -1,0 +1,22 @@
+<div class="main-div">
+    <mat-card>
+        <mat-card-header fxLayoutAlign="center center">
+            <mat-card-subtitle>
+                <h2>Asociar Conductor</h2>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <input matInput placeholder="user" maxlength="15" [(ngModel)]="usuario">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" placeholder="*****" maxlength="15" [(ngModel)]="contrasena">
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="primary" (click)="login()">Iniciar Sesión</button>
+        </mat-card-content>
+    </mat-card>
+</div>

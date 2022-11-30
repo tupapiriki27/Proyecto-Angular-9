@@ -1,0 +1,70 @@
+<form class="example-container" [formGroup]="form" #frmConductor="ngForm" (ngSubmit)="agregar()">
+
+    <mat-form-field>
+        <mat-label>Departamento</mat-label>
+        <mat-select formControlName="depSelec" (selectionChange)="applySelect($event.value)">
+            <mat-option *ngFor="let departamento of displayedDepartamento" [value]="departamento.idDepartamento">
+                {{departamento.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Ciudad</mat-label>
+        <mat-select formControlName="ciudadSelec">
+            <mat-option *ngFor="let ciudad of displayedCiudad" [value]="ciudad.idCiudad">
+                {{ciudad.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div [hidden]="true">
+        <mat-form-field>
+            <input matInput placeholder="ID" formControlName="idUsuario">
+        </mat-form-field>
+    </div>
+    <mat-form-field>
+        <input matInput placeholder="Documento" formControlName="documento">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Apellido" formControlName="apellido">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Nick" formControlName="nick">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="password" matInput placeholder="Clave" formControlName="clave">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Dirección" formControlName="direccion">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Celular" formControlName="celular">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Celular Auxiliar" formControlName="celularAux">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Correo" formControlName="correo">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmConductor.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Guardar</span>
+    </button>
+    <button mat-raised-button color="warn" type="button" routerLink="/conductor">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>
